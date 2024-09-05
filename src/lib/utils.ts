@@ -21,6 +21,6 @@ export function createAvatarInitials(full: string) {
     R.take(2),
     R.map(R.sliceString(0, 1)),
     R.join(""),
-    R.toUpperCase,
+    R.toUpperCase(),
   );
 }
