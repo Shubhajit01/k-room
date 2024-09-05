@@ -4,7 +4,6 @@ import {
   addDoc,
   and,
   collection,
-  or,
   orderBy,
   query,
   type Query,
@@ -18,7 +17,7 @@ export const roomsCollection = collection(firestore, "rooms");
 export function getUserRoomsQuery(userId: string) {
   return query(
     roomsCollection,
-    or(where("visibility", "==", "public"), where("owner", "==", userId)),
+    where("owner", "==", userId),
     orderBy("createdAt", "desc"),
   );
 }
